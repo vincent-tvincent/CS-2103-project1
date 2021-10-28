@@ -123,24 +123,23 @@ public class Piano extends JPanel {
 		}
 	}
 
-	private void makeKey(int startX, int pitch, Boolean isWhite){
+//	private void makeKey(int startX, int pitch, Boolean isWhite){
+//		int[] x;
+//		int[] y;
+//		System.out.println("is white?: " + isWhite);
+//		if(isWhite){
+//			x = new int[]{startX, startX + WHITE_KEY_WIDTH, startX + WHITE_KEY_WIDTH, startX};
+//			y = new int[]{0, 0, WHITE_KEY_HEIGHT, WHITE_KEY_HEIGHT};
+//		}else{
+//			x = new int[]{startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2,
+//					      startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2};
+//			y = new int[]{0,0,BLACK_KEY_HEIGHT, BLACK_KEY_HEIGHT};
+//		}
+//		Polygon block = new Polygon(x, y,x.length);
+//		Key key = new Key(block,isWhite,pitch,this);
+//		_keys.add(key);
+//	}
 
-		int[] x;
-		int[] y;
-		if(isWhite){
-			x = new int[]{startX, startX + WHITE_KEY_WIDTH, startX + WHITE_KEY_WIDTH, startX};
-			y = new int[]{0, 0, WHITE_KEY_HEIGHT, WHITE_KEY_HEIGHT};
-			System.out.println("white key: " + "start x: " + x[0] + " end x: " + x[1] + "start point: " + startX);
-		}else{
-			x = new int[]{startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2,
-					      startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2};
-			y = new int[]{0,0,BLACK_KEY_HEIGHT, BLACK_KEY_HEIGHT};
-			System.out.println("black key: " + "start x: " + x[0] + "end x: " + x[1] + "start point: " +startX);
-		}
-		Polygon block = new Polygon(x, y,x.length);
-		Key key = new Key(block,pitch,this);
-		_keys.add(key);
-	}
 	// DO NOT MODIFY THIS METHOD.
 	@Override
 	/**
