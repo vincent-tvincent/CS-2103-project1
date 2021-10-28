@@ -2,7 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import javax.swing.*;
 import javax.sound.midi.*;
 import java.awt.event.*;
-import org.junit.jupiter.api.*;
+import org. junit.jupiter.api.*;
 
 /**
  * Contains a set of unit tests for the Piano class.

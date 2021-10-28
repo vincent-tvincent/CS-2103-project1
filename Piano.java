@@ -72,7 +72,6 @@ public class Piano extends JPanel {
 	public PianoMouseListener getMouseListener () {
 		return _mouseListener;
 	}
-
 	// TODO: implement this method. You should create and use several helper methods to do so.
 	/**
 	 * Instantiate all the Key objects with their correct polygons and pitches, and
@@ -98,43 +97,47 @@ public class Piano extends JPanel {
 //		// Add this key to the list of keys so that it gets painted.
 //		_keys.add(key);
 //	}
+
 	private void makeKeys (){
 		int X = 0;
 		int startPitch = START_PITCH;
 		for(int counter = 0; counter < 3; counter++){
 			makeOcative(X,startPitch);
-			X += 7 * WHITE_KEY_WIDTH;
+			X += 7  * WHITE_KEY_WIDTH;
 			startPitch += 12;
 		}
 	}
 
 	private void makeOcative(int startX,int startPitch){
-		int whiteX = 0;
+		System.out.println("ocative placed, start point x: " + startX);
 		int pitch = startPitch;
 		for(int counter = 0; counter < 7; counter++){
-			int blackX  = whiteX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2;
-			makeKey(whiteX, pitch,true);
+			int blackX  = startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2;
+			makeKey(startX, pitch,true);
 			pitch++;
 			if(counter != 2 && counter != 6){
 				makeKey(blackX, pitch, false);
 				pitch++;
 			}
-			whiteX += WHITE_KEY_WIDTH;
+			startX += WHITE_KEY_WIDTH;
 		}
 	}
 
 	private void makeKey(int startX, int pitch, Boolean isWhite){
+
 		int[] x;
 		int[] y;
 		if(isWhite){
-			x = new int[]{startX, WHITE_KEY_WIDTH, startX, WHITE_KEY_WIDTH};
+			x = new int[]{startX, startX + WHITE_KEY_WIDTH, startX + WHITE_KEY_WIDTH, startX};
 			y = new int[]{0, 0, WHITE_KEY_HEIGHT, WHITE_KEY_HEIGHT};
+			System.out.println("white key: " + "start x: " + x[0] + " end x: " + x[1] + "start point: " + startX);
 		}else{
 			x = new int[]{startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2,
-					      startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2};
+					      startX + WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2, startX + WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2};
 			y = new int[]{0,0,BLACK_KEY_HEIGHT, BLACK_KEY_HEIGHT};
+			System.out.println("black key: " + "start x: " + x[0] + "end x: " + x[1] + "start point: " +startX);
 		}
-		Polygon block = new Polygon(x, y,4);
+		Polygon block = new Polygon(x, y,x.length);
 		Key key = new Key(block,pitch,this);
 		_keys.add(key);
 	}
