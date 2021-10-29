@@ -74,7 +74,7 @@ public class Key {
 		}
 		//ystem.out.println("color: " + g.getColor());
 		g.fillPolygon(_polygon);
-
+		g.setColor(Color.BLACK);
 		g.drawPolygon(_polygon);
 	}
 
