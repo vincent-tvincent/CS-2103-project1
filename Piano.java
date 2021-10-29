@@ -77,27 +77,6 @@ public class Piano extends JPanel {
 	 * Instantiate all the Key objects with their correct polygons and pitches, and
 	 * add them to the _keys array.
 	 */
-//	private void makeKeys () {
-//		// Just as an example, this draws the left-most black key at its proper position.
-//		final int[] xCoords = new int[] {
-//			WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2,
-//			WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2,
-//			WHITE_KEY_WIDTH + BLACK_KEY_WIDTH/2,
-//			WHITE_KEY_WIDTH - BLACK_KEY_WIDTH/2
-//		};
-//		final int[] yCoords = new int[] {
-//			0,
-//			0,
-//			BLACK_KEY_HEIGHT,
-//			BLACK_KEY_HEIGHT
-//		};
-//		final Polygon polygon = new Polygon(xCoords, yCoords, xCoords.length);
-//		final Key key = new Key(polygon, START_PITCH, this);
-//
-//		// Add this key to the list of keys so that it gets painted.
-//		_keys.add(key);
-//	}
-
 	private void makeKeys (){
 		int X = 0;
 		int startPitch = START_PITCH;
@@ -107,6 +86,12 @@ public class Piano extends JPanel {
 			startPitch += 12;
 		}
 	}
+
+	/**
+	 * instantiate one Ocative on piano start from given coordinate
+	 * @param startX the int value to be used in makeOcative
+	 * @param startPitch the int value to be used in makeOcative
+	 */
 	private void makeOcative(int startX,int startPitch){
 		System.out.println("ocative placed, start point x: " + startX);
 		int pitch = startPitch;
@@ -128,8 +113,13 @@ public class Piano extends JPanel {
 
 	}
 
-
-	private void makeKey(int startX, int pitch, Boolean isWhite){
+	/**
+	 * instinate one single key with given coordinate, pitch and if it's white or not
+	 * @param startX the int value to be used in makeKey
+	 * @param pitch the int value to be used in makeKey
+	 * @param isWhite the boolean valu to be used in makeKey
+	 */
+	private void makeKey(int startX, int pitch, boolean isWhite){
 		int[] x;
 		int[] y;
 		System.out.println("is white?: " + isWhite);
