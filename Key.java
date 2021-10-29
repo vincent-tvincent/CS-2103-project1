@@ -72,7 +72,7 @@ public class Key {
 		}else{
 			g.setColor(Color.BLACK);
 		}
-		System.out.println("color: " + g.getColor());
+		//ystem.out.println("color: " + g.getColor());
 		g.fillPolygon(_polygon);
 
 		g.drawPolygon(_polygon);
